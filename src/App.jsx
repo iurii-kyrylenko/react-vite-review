@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // const Lazy = React.lazy(() => import('./components/Lazy'));
 const Lazy = React.lazy(async () => {
@@ -7,6 +7,7 @@ const Lazy = React.lazy(async () => {
   })
   return import('./components/Lazy')
 });
+import CompoundComponent from "./patterns/compound-component/Usage";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Link to="/">Home</Link>
         {" | "}
         <Link to="/lazy">Lazy</Link>
+        {" | "}
+        <Link to="/compound-component">Compound Component</Link>
       </div>
       <hr />
       <Switch>
@@ -25,6 +28,9 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <Lazy />
           </Suspense>
+        </Route>
+        <Route path="/compound-component">
+          <CompoundComponent />
         </Route>
       </Switch>
     </Router>
