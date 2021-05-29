@@ -16,7 +16,7 @@ function Counter({ children, onChange, initalValue = 0 }) {
     }
   }, [count]);
 
-  const handleIncrement = () => setCount(count + 1);;
+  const handleIncrement = () => setCount(count + 1);
 
   const handleDecrement = () => setCount(Math.max(0, count - 1));
 
