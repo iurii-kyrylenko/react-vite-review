@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import styled from "styled-components";
+import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 // const Lazy = React.lazy(() => import('./components/Lazy'));
 const Lazy = React.lazy(async () => {
   await new Promise(resolve => {
@@ -14,13 +15,13 @@ function App() {
   return (
     <Router>
       <div>
-        <Link to="/">Home</Link>
-        {" | "}
-        <Link to="/lazy">Lazy</Link>
-        {" | "}
-        <Link to="/compound-component">Compound Component</Link>
-        {" | "}
-        <Link to="/control-props">Control Props</Link>
+        <StyledNavLink exact to="/">Home</StyledNavLink>
+        {" • "}
+        <StyledNavLink to="/lazy">Lazy</StyledNavLink>
+        {" • "}
+        <StyledNavLink to="/compound-component">Compound Component</StyledNavLink>
+        {" • "}
+        <StyledNavLink to="/control-props">Control Props</StyledNavLink>
       </div>
       <hr />
       <Switch>
@@ -42,5 +43,13 @@ function App() {
     </Router>
   )
 }
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: gray;
+  &.active {
+    color: black;
+  }
+`;
 
 export default App
