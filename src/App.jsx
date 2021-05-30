@@ -8,6 +8,7 @@ const Lazy = React.lazy(async () => {
   return import('./components/Lazy')
 });
 import CompoundComponent from "./patterns/compound-component/Usage";
+import ControlProps from "./patterns/control-props/Usage";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Link to="/lazy">Lazy</Link>
         {" | "}
         <Link to="/compound-component">Compound Component</Link>
+        {" | "}
+        <Link to="/control-props">Control Props</Link>
       </div>
       <hr />
       <Switch>
@@ -31,6 +34,9 @@ function App() {
         </Route>
         <Route path="/compound-component">
           <CompoundComponent />
+        </Route>
+        <Route path="/control-props">
+          <ControlProps />
         </Route>
       </Switch>
     </Router>
